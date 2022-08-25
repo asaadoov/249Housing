@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { baseUrl, fetchApi } from '../../utils/fetchApi';
 import ImageScrollbar from '../../components/ImageScrollbar';
 
-const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos, geography, location, phoneNumber: {whatsapp}  ,contactName } }) => (
+const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos, geography, location, phoneNumber: {mobile, whatsapp}  ,contactName } }) => (
   <Box maxWidth='1000px' margin='auto' p='4'>
   <style>
     {` 
@@ -41,7 +41,12 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
       <Box margin='4'>
         <Box>
           <Text fontSize='lg' marginBottom='2' fontWeight='bold'>Contacts</Text>
-          <Text fontSize='lg' margin='2' lineHeight='2' color='gray.600'>Get in Touch with <strong> {contactName} </strong> <a href={`https://api.whatsapp.com/send/?phone=${whatsapp}&text&type=phone_number`} target="_blank" rel="noreferrer"> <Box color='green.500'><RiWhatsappFill  /></Box></a></Text>
+          <Text fontSize='lg' margin='2' lineHeight='2' color='gray.600'>
+          Get in Touch with <strong> {contactName} </strong>  
+          {whatsapp ?  <a href={`https://api.whatsapp.com/send/?phone=${whatsapp}&text&type=phone_number`} target="_blank" rel="noreferrer"> 
+            <Box color='green.500'><RiWhatsappFill  /></Box>
+          </a> : mobile}
+          </Text>
         </Box>
         <Box>
           <Text fontSize='lg' marginBottom='4' fontWeight='bold'>Location</Text>
