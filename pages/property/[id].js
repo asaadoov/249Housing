@@ -41,7 +41,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
       <Box margin='4'>
         <Box>
           <Text fontSize='lg' marginBottom='2' fontWeight='bold'>Contacts</Text>
-          <Text fontSize='lg' margin='2' lineHeight='2' color='gray.600'>Get in Touch with <strong> {contactName} </strong> <a href={`https://api.whatsapp.com/send/?phone=${whatsapp}&text&type=phone_number`} target="_blank" > <Box color='green.500'><RiWhatsappFill  /></Box></a></Text>
+          <Text fontSize='lg' margin='2' lineHeight='2' color='gray.600'>Get in Touch with <strong> {contactName} </strong> <a href={`https://api.whatsapp.com/send/?phone=${whatsapp}&text&type=phone_number`} target="_blank" rel="noreferrer"> <Box color='green.500'><RiWhatsappFill  /></Box></a></Text>
         </Box>
         <Box>
           <Text fontSize='lg' marginBottom='4' fontWeight='bold'>Location</Text>
@@ -51,7 +51,6 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
               width="100%"
               height="450px"
               loading="lazy"
-              allowfullscreen
               referrerpolicy="no-referrer-when-downgrade"
               src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDXVxAIeB4b71N6ISGR3iFcW18g6mN0Ups
               &q=${location[3].name ? location[3].name : location[1].name}&center=${geography.lat},${geography.lng}&zoom=16`}>
